@@ -228,7 +228,14 @@ export const ATP_CONSTANTS = {
 // Re-import for function implementations
 import { ATPClient } from './client/atp.js';
 import { Agent, type SimpleAgentOptions } from './simple-agent.js';
-import type { ATPConfig, ZKPAuthRequest, ZKPAuthResult } from './types.js';
+import type {
+  ATPConfig,
+  ATPResponse,
+  DIDDocument,
+  TrustLevel,
+  ZKPAuthRequest,
+  ZKPAuthResult
+} from './types.js';
 import type { DIDRegistrationRequest } from './client/identity.js';
 
 // Helper functions for quick SDK setup
@@ -271,7 +278,10 @@ export function createAgent(name: string, options?: SimpleAgentOptions): Promise
   return Agent.create(name, options);
 }
 
-export function registerAgent(client: ATPClient, request: DIDRegistrationRequest) {
+export function registerAgent(
+  client: ATPClient,
+  request: DIDRegistrationRequest
+): Promise<ATPResponse<{ did: string; document: DIDDocument }>> {
   return client.identity.registerDID(request);
 }
 
@@ -283,7 +293,10 @@ export function verifyAgent(
   return agent.verifyAuthResponse(response, challengeId);
 }
 
-export function getTrustLevel(client: ATPClient, did: string) {
+export function getTrustLevel(
+  client: ATPClient,
+  did: string
+): Promise<ATPResponse<TrustLevel>> {
   return client.identity.getTrustLevel(did);
 }
 

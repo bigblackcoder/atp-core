@@ -887,8 +887,10 @@ export class Agent extends EventEmitter {
     // when their response arrives over the network).
     await this.requestAuth(targetDid, myRequirements);
 
-    // Generate our response to their hypothetical challenge so the caller
-    // can transport it. We do NOT verify it locally — only the peer can.
+    // Generate our response to their hypothetical challenge to exercise the
+    // local response/audit side effects. The result is intentionally not
+    // returned — callers wanting to transport a response over the wire must
+    // call respondToChallenge() directly so they own the payload.
     const challengeFromThem = createChallenge(targetDid, this.did, theirRequirements);
     await this.respondToChallenge(challengeFromThem);
 
