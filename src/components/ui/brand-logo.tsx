@@ -22,7 +22,7 @@ type BrandLogoProps = {
  */
 export function BrandLogo({ variant = 'mark', size = 32, className = '', alt }: BrandLogoProps) {
   const [src, setSrc] = useState<string>(
-    variant === 'lockup' ? '/brand/atp-lockup.png' : '/brand/atp-shield-mark.png'
+    variant === 'lockup' ? '/brand/atp-lockup.png' : '/brand/atp-favicon-logo-agent-new.png'
   );
   const [isDarkMode, setIsDarkMode] = useState(false);
 
