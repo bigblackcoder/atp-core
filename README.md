@@ -4,7 +4,7 @@
 [![Publish to npm](https://github.com/agent-trust-protocol/atp-core/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/agent-trust-protocol/atp-core/actions/workflows/npm-publish.yml)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
-[![Quantum Safe](https://img.shields.io/badge/Security-Quantum%20Safe-blueviolet)](https://github.com/agent-trust-protocol/core)
+[![Quantum Safe](https://img.shields.io/badge/Security-Quantum%20Safe-blueviolet)](https://github.com/agent-trust-protocol/atp-core)
 
 **Build secure AI agents in 3 lines of code.** The world's first quantum-safe security protocol for AI agents with zero-knowledge proof authentication.
 
@@ -84,8 +84,8 @@ For production use with identity registration and trust scoring:
 docker-compose up -d
 
 # Or run locally
-git clone https://github.com/agent-trust-protocol/core.git
-cd core && npm install && npm run dev
+git clone https://github.com/agent-trust-protocol/atp-core.git
+cd atp-core && npm install && npm run dev
 ```
 
 Then use your agent with full features:
@@ -219,17 +219,17 @@ ATP now includes Context7 MCP server for enhanced documentation capabilities:
 ATP provides universal security across all AI agent protocols:
 
 ```
-Your AI Agents (LangChain, OpenClaw, AutoGPT, MCP, Swarm, ADK, A2A)
+Your AI Agents (LangChain, OpenClaw, MCP, Swarm, ADK, A2A)
          │
          ▼
-    ┌──────────────────────────────────────┐
+    ┌──────────────────────────────────┐
     │        ATP Security Layer            │
     │  ┌──────────┐ ┌──────────┐ ┌────────┐ │
     │  │ Quantum  │ │   DID    │ │ Trust   │ │
     │  │  Safe    │ │ Identity │ │ Scoring │ │
     │  │  Crypto  │ │ Service  │ │ System  │ │
     │  └──────────┘ └──────────┘ └────────┘ │
-    └──────────────────────────────────────┘
+    └──────────────────────────────────┘
                     │
             ┌───────▼───────┐
             │   ATP SDK     │
@@ -312,7 +312,7 @@ const validation = await atpClient.validateCrew(crew);
 
 ##  Community
 
-- **GitHub**: [Issues & Discussions](https://github.com/agent-trust-protocol/core/discussions)
+- **GitHub**: [Issues & Discussions](https://github.com/agent-trust-protocol/atp-core/discussions)
 - **Discord**: [Join our community](https://discord.gg/agenttrustprotocol)
 - **Twitter**: [@agenttrustproto](https://twitter.com/agenttrustproto)
 - **Blog**: [ATP Developer Blog](https://blog.agenttrustprotocol.com)
@@ -321,7 +321,7 @@ const validation = await atpClient.validateCrew(crew);
 
 ## 📊 Stats
 
-[![GitHub stars](https://img.shields.io/github/stars/agent-trust-protocol/core?style=social)](https://github.com/agent-trust-protocol/core)
+[![GitHub stars](https://img.shields.io/github/stars/agent-trust-protocol/atp-core?style=social)](https://github.com/agent-trust-protocol/atp-core)
 [![npm downloads](https://img.shields.io/npm/dm/atp-sdk)](https://www.npmjs.com/package/atp-sdk)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue)](./LICENSE)
 
@@ -368,4 +368,4 @@ Found a security issue? Email llewis@agenttrustprotocol.com
 
 **Agent Trust Protocol™** - Protecting AI agents from today's threats and tomorrow's quantum computers.
 
-[Website](https://agenttrustprotocol.com) • [Documentation](https://docs.atp.dev) • [GitHub](https://github.com/agent-trust-protocol/core)
+[Website](https://agenttrustprotocol.com) • [Documentation](./docs/getting-started.md) • [GitHub](https://github.com/agent-trust-protocol/atp-core)

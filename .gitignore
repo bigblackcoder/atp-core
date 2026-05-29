@@ -158,6 +158,8 @@ temp/
 .copilot/
 .gemini/
 .trae/
+.giga/
+.roomodes
 
 # Docker internal files
 docker-build-test.log
