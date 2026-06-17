@@ -1,0 +1,22 @@
+# gitleaks config used by .github/workflows/gitleaks.yml.
+#
+# We rely on the built-in rules (covers Context7, GitHub PATs, AWS,
+# Stripe, etc.). The allowlist exists so PRs that legitimately
+# reference a redacted-looking string (e.g. a placeholder in this
+# repo's own config files) don't fail.
+[allowlist]
+  description = "Allow placeholder env-var interpolations and example strings"
+  regexes = [
+    # ${VAR} placeholders are the recommended pattern in MCP configs.
+    '''\$\{[A-Z][A-Z0-9_]*\}''',
+    # YOUR_*, EXAMPLE_*, REPLACE_ME — obvious template tokens.
+    '''(?i)(YOUR|EXAMPLE|REPLACE_ME|CHANGE_ME)[_A-Z0-9]*''',
+  ]
+  paths = [
+    # Documentation often includes redacted-looking strings.
+    '''(?i)README(\.[^/]+)?\.md$''',
+    '''(?i)docs?/.*\.md$''',
+  ]
+
+# (trailing newline added to retrigger CI after the GitHub billing
+# lock that blocked the original run from starting)

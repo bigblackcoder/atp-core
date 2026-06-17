@@ -1,0 +1,40 @@
+# Block credential leaks at the PR gate.
+#
+# Runs gitleaks on every push and pull request. Fails the workflow if
+# any committed file (or any commit reachable in the PR) contains a
+# string matching gitleaks' built-in secret detectors (API keys,
+# PATs, private keys, etc.).
+#
+# Why this exists: a Context7 API key and a GitHub PAT were both
+# committed live to MCP config files in this repo (see PR redacting
+# them). This workflow makes a repeat impossible to merge without
+# an explicit override.
+#
+# Override path: if a detection is a known false positive, add it to
+# .gitleaks.toml `allowlist` with a comment explaining why.
+name: gitleaks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  scan:
+    name: scan for secrets
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history so gitleaks can scan the PR's commits, not
+          # just the tip.
+          fetch-depth: 0
+
+      - name: gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
