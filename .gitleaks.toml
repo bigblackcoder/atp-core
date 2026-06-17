@@ -17,3 +17,6 @@
     '''(?i)README(\.[^/]+)?\.md$''',
     '''(?i)docs?/.*\.md$''',
   ]
+
+# (trailing newline added to retrigger CI after the GitHub billing
+# lock that blocked the original run from starting)
